@@ -1,0 +1,44 @@
+{
+  "programs": [
+     {
+        "id":1,
+        "name":"B.E.",
+        "description":"This course will lead you to excellence in applied science and technology.",
+        "eligibility":"Applicant should be 12th+ and secured valid marks in JEE India",
+        "duration":48,
+        "certificate":"Bachelor of Engineering"
+    },
+    {
+      "id": 2,
+      "name": "B.A.",
+      "description": "This course will lead you to excellence in Arts and Literature.",
+      "eligibility": "Applicant should be 12th+",
+      "duration": 36,
+      "certificate": "Bachelor of Arts"
+    },
+    {
+      "id": 3,
+      "name": "M.B.B.S",
+      "description": "This course will lead you to excellence in Medical Science.",
+      "eligibility": "Applicant should be 12th+ and secured valid marks in NEET India",
+      "duration": 72,
+      "certificate": "Bachelor of Medicine and Surgery"
+    },
+    {
+      "id": 4,
+      "name": "B.A. Journalism",
+      "description": "This course will lead you to excellence in Journalism.",
+      "eligibility": "Applicant should be 12th+",
+      "duration": 36,
+      "certificate": "B.A. in Journalism"
+    },
+    {
+      "id": 5,
+      "name": "VFX",
+      "description": "This course will lead you to excellence in VFX and Animation.",
+      "eligibility": "Applicant should be 12th+",
+      "duration": 36,
+      "certificate": "VFX and Animation"
+    }
+  ]
+}
