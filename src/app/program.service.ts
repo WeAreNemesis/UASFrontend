@@ -16,8 +16,23 @@ export class ProgramService {
     console.log(error);
     return throwError(error);
   }
+
   public getPrograms(): Observable<Program[]> {
     return this.http.get<Program[]>(this._url);
+  }
+
+  public addProgram(program:Program):Observable<Program> {
+    const url = `${this._url}`;
+    return this.http.post<Program>(url,program).pipe(
+      catchError(this.handleError)
+    );
+  }
+
+  public updateProgram(program:Program):Observable<Program> {
+    const url = `${this._url}/${program.id}`;
+    return this.http.put<Program>(url,program).pipe(
+      catchError(this.handleError)
+    );
   }
 
   public deleteProgram(id: number): Observable<Program> {
@@ -27,5 +42,7 @@ export class ProgramService {
       catchError(this.handleError)
     );
   }
+
+
 }
 

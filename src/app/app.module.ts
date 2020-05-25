@@ -11,6 +11,8 @@ import { ProgramsOfferedComponent } from './programs-offered/programs-offered.co
 import { ProgramsScheduledComponent } from './programs-scheduled/programs-scheduled.component';
 import { ProgramService } from './program.service';
 import { HttpClientModule } from '@angular/common/http';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -26,7 +28,9 @@ import { HttpClientModule } from '@angular/common/http';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    NgbModule,
+    ReactiveFormsModule
   ],
   providers: [ProgramService],
   bootstrap: [AppComponent]

@@ -1,12 +1,12 @@
 {
   "programs": [
-     {
-        "id":1,
-        "name":"B.E.",
-        "description":"This course will lead you to excellence in applied science and technology.",
-        "eligibility":"Applicant should be 12th+ and secured valid marks in JEE India",
-        "duration":48,
-        "certificate":"Bachelor of Engineering"
+    {
+      "id": 1,
+      "name": "B.E.",
+      "description": "This course will lead you to excellence in applied science and technology.",
+      "eligibility": "Applicant should be 12th+ and secured valid marks in JEE India",
+      "duration": 48,
+      "certificate": "Bachelor of Engineering"
     },
     {
       "id": 2,
@@ -39,6 +39,170 @@
       "eligibility": "Applicant should be 12th+",
       "duration": 36,
       "certificate": "VFX and Animation"
+    },
+    {
+      "id": 6,
+      "name": "B.C.A",
+      "description": "This course will lead you to excellence in Computer Applications.",
+      "eligibility": "Applicant should be 12th+",
+      "duration": 36,
+      "certificate": "Bachelor of Computer Applications"
+    }
+  ],
+  "schedules": [
+    {
+      "id": 1,
+      "name": "B.E.",
+      "location": "Mumbai",
+      "startdate": "2020-06-24",
+      "enddate": "2024-06-24",
+      "sessions": 5
+    },
+    {
+      "id": 2,
+      "name": "B.A.",
+      "location": "Pune",
+      "startdate": "2021-06-24",
+      "enddate": "2024-06-24",
+      "sessions": 6
+    },
+    {
+      "id": 3,
+      "name": "M.B.B.S",
+      "location": "Chennai",
+      "startdate": "2021-06-24",
+      "enddate": "2027-06-24",
+      "sessions": 6
+    },
+    {
+      "id": 4,
+      "name": "B.A. Journalism",
+      "location": "Mumbai",
+      "startdate": "2020-06-24",
+      "enddate": "2023-06-24",
+      "sessions": 5
+    },
+    {
+      "id": 5,
+      "name": "VFX",
+      "location": "Bangalore",
+      "startdate": "2020-06-24",
+      "enddate": "2023-06-24",
+      "sessions": 5
+    }
+  ],
+  "applications": [
+    {
+      "id": 1,
+      "name": "shailesh singh",
+      "dob": "1998-02-24",
+      "highestQualification": "12th",
+      "marks": 98,
+      "goals": "To become an engineer",
+      "email": "mail.shailesh.singh@gmail.com",
+      "schedule": 1,
+      "status": "confirmed",
+      "interviewDate": "2020-05-01"
+    },
+    {
+      "id": 2,
+      "name": "Siddharth singh",
+      "dob": "1998-05-24",
+      "highestQualification": "12th",
+      "marks": 95,
+      "goals": "To become an engineer",
+      "email": "mail.siddharth.singh@gmail.com",
+      "schedule": 1,
+      "status": "confirmed",
+      "interviewDate": "2020-06-01"
+    },
+    {
+      "id": 3,
+      "name": "sonu bhai",
+      "dob": "1998-02-24",
+      "highestQualification": "12th",
+      "marks": 98,
+      "goals": "To become a surgeon",
+      "email": "mail.sonu@gmail.com",
+      "schedule": 3,
+      "status": "accepted",
+      "interviewDate": "2020-06-01"
+    },
+    {
+      "id": 4,
+      "name": "Manish kumar",
+      "dob": "1998-02-24",
+      "highestQualification": "12th",
+      "marks": 90,
+      "goals": "To become a journalist",
+      "email": "mail.manish.kumar@gmail.com",
+      "schedule": 4,
+      "status": "pending",
+      "interviewDate": "null"
+    },
+    {
+      "id": 5,
+      "name": "Manish kumar 2",
+      "dob": "1998-02-24",
+      "highestQualification": "12th",
+      "marks": 90,
+      "goals": "To become a journalist",
+      "email": "mail.manish2.kumar@gmail.com",
+      "schedule": 1,
+      "status": "pending",
+      "interviewDate": "null"
+    },
+    {
+      "id": 6,
+      "name": "Siddharth singh 2",
+      "dob": "1998-05-24",
+      "highestQualification": "12th",
+      "marks": 95,
+      "goals": "To become a journalist",
+      "email": "mail.siddharth.singh@gmail.com",
+      "schedule": 1,
+      "status": "rejected",
+      "interviewDate": "2020-05-01"
+    }
+  ],
+  "participants": [
+    {
+      "id": 1,
+      "rollno": 101,
+      "applicationId": 1,
+      "scheduleId": 1
+    },
+    {
+      "id": 2,
+      "rollno": 102,
+      "applicationId": 2,
+      "scheduleId": 1
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "name": "shailesh",
+      "password": "shailesh",
+      "role": "admin"
+    },
+    {
+      "id": 2,
+      "name": "sonu",
+      "password": "sonu",
+      "role": "mac"
+    },
+    {
+      "id": 3,
+      "name": "manish",
+      "password": "manish",
+      "role": "mac"
+    },
+    {
+      "id": 4,
+      "name": "sname",
+      "password": "sname",
+      "role": "admin"
     }
   ]
 }
