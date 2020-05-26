@@ -9,10 +9,21 @@ import { MacComponent } from './mac/mac.component';
 import { ApplicantComponent } from './applicant/applicant.component';
 import { ProgramsOfferedComponent } from './programs-offered/programs-offered.component';
 import { ProgramsScheduledComponent } from './programs-scheduled/programs-scheduled.component';
-import { ProgramService } from './program.service';
+
 import { HttpClientModule } from '@angular/common/http';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+
+import { ProgramService } from './servicePrograms/program.service';
+import { ScheduleService } from './serviceSchedule/schedule.service';
+import { AdminReportComponent } from './admin-report/admin-report.component';
+import { ApplicationService } from './serviceApplication/application.service';
+import { FilterAppBySchedPipe } from './filter-app-by-sched.pipe';
+import { FilterSchedByDatePipe } from './filter-sched-by-date.pipe';
+import { LoginComponent } from './login/login.component';
+import { ValidationService } from './serviceValidation/validation.service';
+import { AdminAuthGuard } from './guards/admin-auth.guard';
+import { MacAuthGuard } from './guards/mac-auth.guard';
 
 
 @NgModule({
@@ -23,16 +34,28 @@ import { ReactiveFormsModule } from '@angular/forms';
     MacComponent,
     ApplicantComponent,
     ProgramsOfferedComponent,
-    ProgramsScheduledComponent
+    ProgramsScheduledComponent,
+    AdminReportComponent,
+    FilterAppBySchedPipe,
+    FilterSchedByDatePipe,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     NgbModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FormsModule
   ],
-  providers: [ProgramService],
+  providers: [
+    ProgramService,
+    ScheduleService,
+    ApplicationService,
+    ValidationService,
+    AdminAuthGuard,
+    MacAuthGuard
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ValidationService } from './serviceValidation/validation.service';
 
 @Component({
   selector: 'app-root',

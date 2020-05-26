@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ProgramService } from '../program.service';
-import { Program } from '../Program';
+import { ProgramService } from '../servicePrograms/program.service';
+import { Program } from '../servicePrograms/Program';
 import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
@@ -25,7 +25,7 @@ export class ProgramsOfferedComponent implements OnInit {
     duration: ['', [Validators.required]],
     certificate: ['', [Validators.required, Validators.pattern(this.patterns[1])]],
   });
-  constructor(private _programService: ProgramService, private fb: FormBuilder,) {
+  constructor(private _programService: ProgramService, private fb: FormBuilder) {
   }
 
   ngOnInit(): void {

@@ -1,0 +1,22 @@
+<form [formGroup]="loginForm" (ngSubmit)="onSubmit(loginForm)">
+<table>
+    <tr>
+        <td><label for="name">Enter your username:</label></td>
+        <td>
+            <input type="text" formControlName="name" id="name"><br>
+            <small *ngIf="!loginForm.get('name').valid && loginForm.get('name').touched">Enter a valid user name</small>
+        </td>
+    </tr>
+    <tr>
+        <td><label for="password">Enter your password:</label></td>
+        <td>
+            <input type="password" formControlName="password" id="password"><br>
+            <small *ngIf="!loginForm.get('password').valid && loginForm.get('password').touched">Enter a valid password</small>
+        </td>
+    </tr>
+    <tr>
+        <td><input type="submit" value="Login"></td>
+        <td><input type="reset"></td>
+    </tr>
+</table>
+</form>
