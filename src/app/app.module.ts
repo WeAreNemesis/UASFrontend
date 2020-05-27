@@ -11,7 +11,6 @@ import { ProgramsOfferedComponent } from './programs-offered/programs-offered.co
 import { ProgramsScheduledComponent } from './programs-scheduled/programs-scheduled.component';
 
 import { HttpClientModule } from '@angular/common/http';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 import { ProgramService } from './servicePrograms/program.service';
@@ -24,6 +23,8 @@ import { LoginComponent } from './login/login.component';
 import { ValidationService } from './serviceValidation/validation.service';
 import { AdminAuthGuard } from './guards/admin-auth.guard';
 import { MacAuthGuard } from './guards/mac-auth.guard';
+import { HeaderComponent } from './header/header.component';
+import { FooterComponent } from './footer/footer.component';
 
 
 @NgModule({
@@ -38,13 +39,14 @@ import { MacAuthGuard } from './guards/mac-auth.guard';
     AdminReportComponent,
     FilterAppBySchedPipe,
     FilterSchedByDatePipe,
-    LoginComponent
+    LoginComponent,
+    HeaderComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    NgbModule,
     ReactiveFormsModule,
     FormsModule
   ],

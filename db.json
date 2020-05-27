@@ -47,6 +47,14 @@
       "eligibility": "Applicant should be 12th+",
       "duration": 36,
       "certificate": "Bachelor of Computer Applications"
+    },
+    {
+      "id": 7,
+      "name": "B.C.S",
+      "description": "This course will lead you to excellence in Computer Science.",
+      "eligibility": "Applicant should be 12th+",
+      "duration": 36,
+      "certificate": "Bachelor of Computer Science"
     }
   ],
   "schedules": [
@@ -89,6 +97,14 @@
       "startdate": "2020-06-24",
       "enddate": "2023-06-24",
       "sessions": 5
+    },
+    {
+      "id": 6,
+      "name": "B.C.A",
+      "location": "Kolkata",
+      "startdate": "2020-06-26",
+      "enddate": "2023-11-27",
+      "sessions": "6"
     }
   ],
   "applications": [
@@ -106,12 +122,12 @@
     },
     {
       "id": 2,
-      "name": "Siddharth singh",
-      "dob": "1998-05-24",
+      "name": "Samiksha singh",
+      "dob": "2010-06-20",
       "highestQualification": "12th",
-      "marks": 95,
-      "goals": "To become an engineer",
-      "email": "mail.siddharth.singh@gmail.com",
+      "marks": 98,
+      "goals": "To become an actor",
+      "email": "mail.samiksha.singh@gmail.com",
       "schedule": 1,
       "status": "confirmed",
       "interviewDate": "2020-06-01"

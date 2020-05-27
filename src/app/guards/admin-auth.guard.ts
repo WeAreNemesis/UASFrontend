@@ -19,7 +19,7 @@ export class AdminAuthGuard implements CanActivate {
   public isLoggedIn(): boolean {
     let status = false;
     let role = localStorage.getItem('role');
-    console.log(role);
+    //console.log(role);
     if (role) {
       return (role==="admin") ? true:false;
     }

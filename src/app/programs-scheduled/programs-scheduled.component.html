@@ -1,87 +1,113 @@
-<h1>Hello main component</h1>
-<p>programs-scheduled works!</p>
-<table cellspacing="5" border="3">
-    <tr>
-        <th>id</th>
-        <th>name</th>
-        <th>location</th>
-        <th>startdate</th>
-        <th>enddate</th>
-        <th>sessions</th>
-        <th>Action</th>
+<section class="details-card">
 
-    </tr>
-    <tr>
-    <tr *ngFor="let schedule of visibleSchedules">
-        <td>{{schedule.id}}</td>
-        <td>{{schedule.name}}</td>
-        <td>{{schedule.location}}</td>
-        <td>{{schedule.startdate}}</td>
-        <td>{{schedule.enddate}}</td>
-        <td> {{schedule.sessions}}</td>
-        <td>
-            <button (click)="deleteSchedule($event,schedule.id)">Delete</button>
-        </td>
-    </tr>
-</table>
-<button (click)="showForm=true">Add</button>
-<div *ngIf="showForm">
-    <h2>Add a new schedule</h2>
-    <form [formGroup]="scheduleForm" (ngSubmit)="onSubmit(scheduleForm)">
-        <table>
-            <tr>
-                <td><label for="name">Select the Program Name:</label></td>
-                <td>
-                    <select formControlName="name" id="name">
-                        <option disabled selected value> -- select an name -- </option>
-                        <option *ngFor="let program of visiblePrograms" [value]="program.name">
-                            {{program.name}}
-                        </option>
-                    </select>
-                    <!-- <input type="text" formControlName="name" id="name"> -->
-                    <small *ngIf="!scheduleForm.get('name').valid && scheduleForm.get('name').touched">
-                        Select a valid program name</small>
-                </td>
-            </tr>
-            <tr>
-                <td><label for="startdate">Enter the Start Date:</label></td>
-                <td>
-                    <input type="date" formControlName="startdate" id="startdate" min="Date.now()">
-                    <small *ngIf="!scheduleForm.get('startdate').valid && scheduleForm.get('startdate').touched">Enter a future and valid start date</small>
-                </td>
-            </tr>
-            <tr>
-                <td><label for="enddate">Enter the End Date:</label></td>
-                <td>
-                    <input type="date" formControlName="enddate" id="enddate">
-                    <small *ngIf="!scheduleForm.get('enddate').valid && scheduleForm.get('enddate').touched">Enter a future and valid valid end date</small>
-                </td>
-            </tr>
-            <tr>
-                <td><label for="location">Enter the Location:</label></td>
-                <td>
-                    <input type="text" formControlName="location" id="location">
-                    <small *ngIf="!scheduleForm.get('location').valid && scheduleForm.get('location').touched">Enter a valid location</small>
-                </td>
-            </tr>
-            <tr>
-                <td><label for="sessions">Enter the number of sessions per week:</label></td>
-                <td>
-                    <input type="text" formControlName="sessions" id="sessions">
-                    <small *ngIf="!scheduleForm.get('sessions').valid && scheduleForm.get('sessions').touched">Enter a valid number sessions</small>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <input type="submit" value="Add Schedule"><br>
-                    <small *ngIf="invalidForm">Please fill the form properly</small><br>
-                    <small *ngIf="timeError">The selected dates are not possible for scheduling</small>
-                </td>
-                <td>
-                    <input type="reset" value="Clear Details">
-                    <button (click)="showForm=false">Hide</button>
-                </td>
-            </tr>
+    <div class="container table-responsive">
+        <hr>
+        <h2 class="heading">Scheduled Programs</h2>
+        <table class="table table-light table-bordered table-hover" id="dev-table">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col">Program Name</th>
+                    <th scope="col">Location</th>
+                    <th scope="col" class="hide-cell">Start Date</th>
+                    <th scope="col" class="hide-cell">End Date</th>
+                    <th scope="col" class="hide-cell">Sessions</th>
+                    <th scope="col">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let schedule of visibleSchedules">
+                    <th>{{schedule.id}}</th>
+                    <td>{{schedule.name}}</td>
+                    <td>{{schedule.location}}</td>
+                    <td class="hide-cell">{{schedule.startdate}}</td>
+                    <td class="hide-cell">{{schedule.enddate}}</td>
+                    <td class="hide-cell short"> {{schedule.sessions}}</td>
+                    <td class="short">
+                        <button class="btn-danger btn" (click)="deleteSchedule($event,schedule.id)">Delete</button>
+                    </td>
+                </tr>
+            </tbody>
         </table>
-    </form>
-</div>
+        <!-- </div> -->
+        <hr>
+        <!-- <div class="container  table-responsive"> -->
+        <button class="btn btn-primary button-big my-4" (click)="showForm=true">+</button>
+        <div class="form-group" *ngIf="showForm">
+            <h2>Add a new schedule</h2>
+            <form [formGroup]="scheduleForm" (ngSubmit)="onSubmit(scheduleForm)">
+                <table class="table">
+                    <tr>
+                        <td><label for="name">Select the Program Name:</label></td>
+                        <td>
+                            <select class="form-control" formControlName="name" id="name">
+                                <option disabled selected value> -- select an program -- </option>
+                                <option *ngFor="let program of visiblePrograms" [value]="program.name">
+                                    {{program.name}}
+                                </option>
+                            </select>
+
+                            <small *ngIf="!scheduleForm.get('name').valid && scheduleForm.get('name').touched">
+                                Select a valid program name</small>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label for="startdate">Enter the Start Date:</label></td>
+                        <td>
+                            <input class="form-control" type="date" formControlName="startdate" id="startdate"
+                                min="Date.now()">
+
+                            <small
+                                *ngIf="!scheduleForm.get('startdate').valid && scheduleForm.get('startdate').touched">Enter
+                                a future and valid start date</small>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label for="enddate">Enter the End Date:</label></td>
+                        <td>
+                            <input class="form-control" type="date" formControlName="enddate" id="enddate">
+
+                            <small
+                                *ngIf="!scheduleForm.get('enddate').valid && scheduleForm.get('enddate').touched">Enter
+                                a
+                                future and valid valid end date</small>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label for="location">Enter the Location:</label></td>
+                        <td>
+                            <input class="form-control" type="text" formControlName="location" id="location">
+
+                            <small
+                                *ngIf="!scheduleForm.get('location').valid && scheduleForm.get('location').touched">Enter
+                                a valid location</small>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label for="sessions">Enter the number of sessions per week:</label></td>
+                        <td>
+                            <input class="form-control" type="text" formControlName="sessions" id="sessions">
+
+                            <small
+                                *ngIf="!scheduleForm.get('sessions').valid && scheduleForm.get('sessions').touched">Enter
+                                a valid number sessions</small>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input class="btn btn-success" type="submit" value="Add Schedule"><br>
+                            <small *ngIf="invalidForm">Please fill the form properly</small><br>
+                            <small *ngIf="timeError">The selected dates are not possible for scheduling</small>
+                        </td>
+                        <td class="justify-content-around">
+                            <button class="btn btn-danger mx-1" type="reset">clear</button>
+                            <button class="btn btn-warning" (click)="showForm=false">Hide</button>
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+        <hr>
+    </div>
+
+</section>

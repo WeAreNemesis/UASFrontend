@@ -72,7 +72,7 @@ export class ProgramsScheduledComponent implements OnInit {
         );
         console.log(schedule);
         this.addSchedule(schedule);
-        this.timeError = true;
+        this.timeError = false;
       }
     } else {
       this.invalidForm = true;

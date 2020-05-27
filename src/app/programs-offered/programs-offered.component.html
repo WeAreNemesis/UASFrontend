@@ -1,80 +1,98 @@
-<p>programs-offered works!</p>
-<table cellspacing="5" border="3">
-    <tr>
-        <th>id</th>
-        <th>name</th>
-        <th>description</th>
-        <th>eligibility</th>
-        <th>duration</th>
-        <th>certificate</th>
-        <th>Action</th>
+<section class="details-card">
+    <div class="container table-responsive">
+        <h2 class="heading">Offered Programs</h2>
+        <table class="table table-light table-bordered table-hover" id="dev-table">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col">Name</th>
+                    <th scope="col" class="hide-cell">Description</th>
+                    <th scope="col" class="hide-cell">Eligibility</th>
+                    <th scope="col">Duration</th>
+                    <th scope="col" class="hide-cell">Certificate</th>
+                    <th scope="col">Action</th>
 
-    </tr>
-    <tr *ngFor="let program of visiblePrograms">
-        <td>{{program.id}}</td>
-        <td>{{program.name}}</td>
-        <td>{{program.description}}</td>
-        <td>{{program.eligibility}}</td>
-        <td>{{program.duration}}</td>
-        <td> {{program.certificate}}</td>
-        <td>
-            <button (click)="deleteProgram($event,program.id)">Delete</button>
-            <button (click)="showForm($event,program)">Update</button>
-        </td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let program of visiblePrograms">
+                    <td>{{program.id}}</td>
+                    <td>{{program.name}}</td>
+                    <td class="hide-cell">{{program.description}}</td>
+                    <td class="hide-cell">{{program.eligibility}}</td>
+                    <td>{{program.duration}}</td>
+                    <td class="hide-cell"> {{program.certificate}}</td>
+                    <td>                                                                            
+                        <button class="btn-danger btn mb-1"  (click)="deleteProgram($event,program.id)">Remove</button>
+                        <button class="btn-warning btn"  (click)="showForm($event,program)">Manage</button>
+                    </td>
 
-    </tr>
-</table>
-<button (click)="showForm($event,null)">Add</button>
-<div *ngIf="formVisible">
-    <h2>Add a new Program</h2>
-    <form [formGroup]="programForm" (ngSubmit)="onSubmit(programForm,id)">
-        <table>
-
-            <tr>
-                <td><label for="name">Enter the Program Name:</label></td>
-                <td>
-                    <input type="text" formControlName="name" id="name">
-                    <small *ngIf="!programForm.get('name').valid && programForm.get('name').touched">Enter a valid program name within 0 - 20 alphabets</small>
-                </td>
-            </tr>
-            <tr>
-                <td><label for="description">Enter the Program description:</label></td>
-                <td>
-                    <input type="text" formControlName="description" id="description">
-                    <small *ngIf="!programForm.get('description').valid && programForm.get('description').touched">Enter a valid program description</small>
-                </td>
-            </tr>
-            <tr>
-                <td><label for="eligibility">Enter the Program eligibility:</label></td>
-                <td>
-                    <input type="text" formControlName="eligibility" id="eligibility">
-                    <small *ngIf="!programForm.get('eligibility').valid && programForm.get('eligibility').touched">Enter a valid program eligibility</small>
-                </td>
-            </tr>
-            <tr>
-                <td><label for="duration">Enter the Program duration:</label></td>
-                <td>
-                    <input type="number" formControlName="duration" id="duration">
-                    <small *ngIf="!programForm.get('duration').valid && programForm.get('duration').touched">Enter a valid program duration</small>
-                </td>
-            </tr>
-            <tr>
-                <td><label for="certificate">Enter the Program certificate:</label></td>
-                <td>
-                    <input type="text" formControlName="certificate" id="certificate">
-                    <small *ngIf="!programForm.get('certificate').valid && programForm.get('certificate').touched">Enter a valid program certificate</small>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <input type="submit" value="Add Program" ><br>
-                    <small *ngIf="invalidForm">Please fill the form properly</small>
-                </td>
-                <td>
-                    <input type="reset" value="Clear Details">
-                    <button (click)="formVisible=false">Hide</button>
-                </td>
-            </tr>
+                </tr>
+            </tbody>
         </table>
-    </form>
-</div>
+
+        <button class="btn btn-primary button-big my-4" (click)="showForm($event,null)">+</button>
+        <div class="form-group" *ngIf="formVisible">
+            <h2>Add a new Program</h2>
+            <form [formGroup]="programForm" (ngSubmit)="onSubmit(programForm,id)">
+                <table class="table">
+
+                    <tr>
+                        <td><label for="name">Enter the Program Name:</label></td>
+                        <td>
+                            <input class="form-control" type="text" formControlName="name" id="name" placeholder="enter the program name">
+                            <small *ngIf="!programForm.get('name').valid && programForm.get('name').touched">Enter a
+                                valid program name within 0 - 20 alphabets</small>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label for="description">Enter the Program description:</label></td>
+                        <td>
+                            <input class="form-control" type="text" formControlName="description" id="description" placeholder="enter the program description">
+                            <small
+                                *ngIf="!programForm.get('description').valid && programForm.get('description').touched">Enter
+                                a valid program description</small>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label for="eligibility">Enter the Program eligibility:</label></td>
+                        <td>
+                            <input class="form-control" type="text" formControlName="eligibility" id="eligibility" placeholder="enter the program eligibility">
+                            <small
+                                *ngIf="!programForm.get('eligibility').valid && programForm.get('eligibility').touched">Enter
+                                a valid program eligibility</small>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label for="duration">Enter the Program duration:</label></td>
+                        <td>
+                            <input class="form-control" type="number" formControlName="duration" id="duration" placeholder="enter the program duration:">
+                            <small
+                                *ngIf="!programForm.get('duration').valid && programForm.get('duration').touched">Enter
+                                a valid program duration</small>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label for="certificate">Enter the Program certificate:</label></td>
+                        <td>
+                            <input class="form-control" type="text" formControlName="certificate" id="certificate" placeholder="enter the program certificate">
+                            <small
+                                *ngIf="!programForm.get('certificate').valid && programForm.get('certificate').touched">Enter
+                                a valid program certificate</small>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input class="btn btn-success" type="submit" value="Add Program"><br>
+                            <small *ngIf="invalidForm">Please fill the form properly</small>
+                        </td>
+                        <td>
+                            <input class="btn btn-danger mx-1" type="reset" value="Clear Details">
+                            <button class="btn btn-warning" (click)="formVisible=false">Hide</button>
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+    </div>
+</section>

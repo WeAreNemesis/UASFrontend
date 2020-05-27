@@ -1,22 +1,65 @@
+<div class="container login-container">
+    <div class="row">
+        <div class="col-md-6 login-form-1">
+            <h3>Sign in</h3>
+            <form [formGroup]="loginForm" (ngSubmit)="onSubmit(loginForm)">
+                <div class="form-group">
+                    <small class="text-warning"
+                        *ngIf="!loginForm.get('name').valid && loginForm.get('name').touched">Enter a valid user
+                        name</small>
+                    <input type="text" formControlName="name" id="name" class="form-control"
+                        placeholder="enter username *" value=""><br>
+
+                    <!-- <input type="text" class="form-control" placeholder="Your Email *" value="" /> -->
+                </div>
+                <div class="form-group">
+                    <small class="text-warning"
+                        *ngIf="!loginForm.get('password').valid && loginForm.get('password').touched">Enter a valid
+                        password</small>
+                    <input type="password" formControlName="password" id="password" class="form-control"
+                        placeholder="enter password" value=""><br>
+
+                    <!-- <input type="password" class="form-control" placeholder="Your Password *" value="" /> -->
+                </div>
+                <div class="form-group">
+                    <input type="submit" class="btnSubmit" value="Login" />
+                </div>
+            </form>
+        </div>
+        <div class="col-md-6 login-form-2">
+            <div class="login-logo">
+                <img src="https://image.ibb.co/n7oTvU/logo_white.png" alt="" />
+            </div>
+            <figure class="figure">
+                <img src="./assets/images/welcome2.jpg" class="figure-img img-fluid rounded" alt="...">
+            </figure>
+
+        </div>
+    </div>
+</div>
+
+<!-- 
 <form [formGroup]="loginForm" (ngSubmit)="onSubmit(loginForm)">
-<table>
-    <tr>
-        <td><label for="name">Enter your username:</label></td>
-        <td>
-            <input type="text" formControlName="name" id="name"><br>
-            <small *ngIf="!loginForm.get('name').valid && loginForm.get('name').touched">Enter a valid user name</small>
-        </td>
-    </tr>
-    <tr>
-        <td><label for="password">Enter your password:</label></td>
-        <td>
-            <input type="password" formControlName="password" id="password"><br>
-            <small *ngIf="!loginForm.get('password').valid && loginForm.get('password').touched">Enter a valid password</small>
-        </td>
-    </tr>
-    <tr>
-        <td><input type="submit" value="Login"></td>
-        <td><input type="reset"></td>
-    </tr>
-</table>
-</form>
+    <table>
+        <tr>
+            <td><label for="name">Enter your username:</label></td>
+            <td>
+                <input type="text" formControlName="name" id="name"><br>
+                <small *ngIf="!loginForm.get('name').valid && loginForm.get('name').touched">Enter a valid user
+                    name</small>
+            </td>
+        </tr>
+        <tr>
+            <td><label for="password">Enter your password:</label></td>
+            <td>
+                <input type="password" formControlName="password" id="password"><br>
+                <small *ngIf="!loginForm.get('password').valid && loginForm.get('password').touched">Enter a valid
+                    password</small>
+            </td>
+        </tr>
+        <tr>
+            <td><input type="submit" value="Login"></td>
+            <td><input type="reset"></td>
+        </tr>
+    </table>
+</form> -->

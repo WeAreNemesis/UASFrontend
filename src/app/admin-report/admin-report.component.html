@@ -1,53 +1,100 @@
-<p>admin-report works!</p>
-<h1>Generate report of Applications</h1>
-<input type="number" [(ngModel)]="scheduleId" placeholder="Enter the schedule id">
-<table cellspacing="5" border="3">
-    <tr>
-        <th>id</th>
-        <th>name</th>
-        <th>dob</th>
-        <th>highestQualification</th>
-        <th>marks</th>
-        <th>goals</th>
-        <th>email</th>
-        <th>schedule</th>
-        <th>status</th>
-        <th>interviewDate</th>
-    </tr>
-    <tr>
-    <tr *ngFor="let application of visibleApplications | filterAppBySched:scheduleId:visibleApplications.length">
-        <td>{{application.id}}</td>
-        <td>{{application.name}}</td>
-        <td>{{application.dob}}</td>
-        <td>{{application.highestQualification}}</td>
-        <td>{{application.marks}}</td>
-        <td> {{application.goals}}</td>
-        <td>{{application.email}}</td>
-        <td> {{application.schedule}}</td>
-        <td>{{application.status}}</td>
-        <td> {{application.interviewDate}}</td>
-    </tr>
-</table>
-<h1>Generate report of Scheduled Programs</h1>
-<input type="date" [(ngModel)]="startdate" placeholder="Enter the start date">
-<input type="date" [(ngModel)]="enddate" placeholder="Enter the end date">
-<button (click)="startdate=null ; enddate=null">Clear</button>
-<table cellspacing="5" border="3">
-    <tr>
-        <th>id</th>
-        <th>name</th>
-        <th>location</th>
-        <th>startdate</th>
-        <th>enddate</th>
-        <th>sessions</th>
-    </tr>
-    <tr>
-    <tr *ngFor="let schedule of visibleSchedules | filterSchedByDate:startdate:enddate:visibleSchedules.length">
-        <td>{{schedule.id}}</td>
-        <td>{{schedule.name}}</td>
-        <td>{{schedule.location}}</td>
-        <td>{{schedule.startdate}}</td>
-        <td>{{schedule.enddate}}</td>
-        <td> {{schedule.sessions}}</td>
-    </tr>
-</table>
+<section class="details-card">
+    <div class="container table-responsive">
+        <h2 class="heading">Generate report of Applications</h2>
+        <div class="form-group">
+            <table class="table table-light table-bordered table-hover">
+                <tr>
+                    <td>
+                        <input type="number" class="form-control mb-1" [(ngModel)]="scheduleId"
+                            placeholder="Enter the schedule id">
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <table class="table table-light table-bordered table-hover">
+            <thead class="thead-dark">
+
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Applicant</th>
+                    <th scope="col" class="hide-cell">DateOfbirth</th>
+                    <th scope="col" class="hide-cell">Qualif.</th>
+                    <th scope="col" class="hide-cell">Marks</th>
+                    <th scope="col" class="hide-cell">Email</th>
+                    <th scope="col">Sched.</th>
+                    <th scope="col">Status</th>
+                    <th scope="col" class="hide-cell">Interview-Date</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                <tr
+                    *ngFor="let application of visibleApplications | filterAppBySched:scheduleId:visibleApplications.length">
+                    <td>{{application.id}}</td>
+                    <td>{{application.name}}</td>
+                    <td class="hide-cell">{{application.dob}}</td>
+                    <td class="hide-cell">{{application.highestQualification}}</td>
+                    <td class="hide-cell">{{application.marks}}</td>
+                    <td class="hide-cell">{{application.email}}</td>
+                    <td> {{application.schedule}}</td>
+                    <td>{{application.status}}</td>
+                    <td class="hide-cell"> {{application.interviewDate}}</td>
+                </tr>
+            </tbody>
+        </table>
+        <hr>
+        <h2 class="heading">Generate report of Scheduled Programs</h2>
+        <div class="form-group">
+            <table class="table table-light table-borderless table-hover">
+                <tr>
+                    <div class="hide-cell">
+                        <td>
+                            <label class="form-control mb-1 border-0" for="startdate">Start Date:</label>
+                        </td>
+                    </div>
+                    <td>
+                        <input class="form-control mb-1" type="date" [(ngModel)]="startdate"
+                            placeholder="Enter the start date" id="startdate">
+                    </td>
+                    <div class="hide-cell">
+                        <td>
+                            <label class="form-control mb-1 border-0" for="enddate">End Date:</label>
+                        </td>
+                    </div>
+                    <td>
+                        <input class="form-control mb-1" type="date" [(ngModel)]="enddate"
+                            placeholder="Enter the end date" id="enddate">
+                    </td>
+                    <td>
+                        <button class="btn-danger btn" (click)="startdate=null ; enddate=null">Clear</button>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <table class="table table-light table-bordered table-hover">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col">Program Name</th>
+                    <th scope="col">Location</th>
+                    <th scope="col" class="hide-cell">Start Date</th>
+                    <th scope="col" class="hide-cell">End Date</th>
+                    <th scope="col" class="hide-cell">Sessions</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                <tr
+                    *ngFor="let schedule of visibleSchedules | filterSchedByDate:startdate:enddate:visibleSchedules.length">
+                    <th>{{schedule.id}}</th>
+                    <td>{{schedule.name}}</td>
+                    <td>{{schedule.location}}</td>
+                    <td class="hide-cell">{{schedule.startdate}}</td>
+                    <td class="hide-cell">{{schedule.enddate}}</td>
+                    <td class="hide-cell short"> {{schedule.sessions}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</section>
