@@ -20,7 +20,7 @@ export class MacAuthGuard implements CanActivate {
     let role = localStorage.getItem('role');
     console.log(role);
     if (role) {
-      return (role==="role") ? true:false;
+      return (role==="mac") ? true:false;
     }
     return false;
   }
