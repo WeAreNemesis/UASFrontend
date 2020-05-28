@@ -27,6 +27,8 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { MacScheduledCoursesComponent } from './mac-scheduled-courses/mac-scheduled-courses.component';
 import { MacFilterApplicantsComponent } from './mac-filter-applicants/mac-filter-applicants.component';
+import { FilterByCourseIdPipe } from './filter-by-course-id.pipe';
+import { FilterByApplicantIdPipe } from './filter-by-applicant-id.pipe';
 
 
 @NgModule({
@@ -45,7 +47,9 @@ import { MacFilterApplicantsComponent } from './mac-filter-applicants/mac-filter
     HeaderComponent,
     FooterComponent,
     MacScheduledCoursesComponent,
-    MacFilterApplicantsComponent
+    MacFilterApplicantsComponent,
+    FilterByCourseIdPipe,
+    FilterByApplicantIdPipe
   ],
   imports: [
     BrowserModule,
