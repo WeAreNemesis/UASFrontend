@@ -10,6 +10,8 @@ import { AdminReportComponent } from './admin-report/admin-report.component';
 import { LoginComponent } from './login/login.component';
 import { AdminAuthGuard } from './guards/admin-auth.guard';
 import { MacAuthGuard } from './guards/mac-auth.guard';
+import { MacScheduledCoursesComponent} from './mac-scheduled-courses/mac-scheduled-courses.component';
+import { MacFilterApplicantsComponent} from './mac-filter-applicants/mac-filter-applicants.component';
 
 
 
@@ -22,7 +24,9 @@ const routes: Routes = [
   { path: 'applicant', component: ApplicantComponent },
   { path: 'manageProgramsOffered', component: ProgramsOfferedComponent, canActivate: [AdminAuthGuard] },
   { path: 'manageProgramsScheduled', component: ProgramsScheduledComponent, canActivate: [AdminAuthGuard] },
-  { path: 'generateReports', component: AdminReportComponent, canActivate: [AdminAuthGuard] }
+  { path: 'generateReports', component: AdminReportComponent, canActivate: [AdminAuthGuard] },
+  { path: 'viewApplicants' , component: MacScheduledCoursesComponent },
+  { path: 'filterApplicants' ,component: MacFilterApplicantsComponent },
 ];
 
 @NgModule({

@@ -25,6 +25,8 @@ import { AdminAuthGuard } from './guards/admin-auth.guard';
 import { MacAuthGuard } from './guards/mac-auth.guard';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
+import { MacScheduledCoursesComponent } from './mac-scheduled-courses/mac-scheduled-courses.component';
+import { MacFilterApplicantsComponent } from './mac-filter-applicants/mac-filter-applicants.component';
 
 
 @NgModule({
@@ -41,7 +43,9 @@ import { FooterComponent } from './footer/footer.component';
     FilterSchedByDatePipe,
     LoginComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    MacScheduledCoursesComponent,
+    MacFilterApplicantsComponent
   ],
   imports: [
     BrowserModule,
