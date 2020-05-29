@@ -29,9 +29,7 @@
                 </tr>
             </tbody>
         </table>
-        <!-- </div> -->
         <hr>
-        <!-- <div class="container  table-responsive"> -->
         <button class="btn btn-primary button-big my-4" (click)="showForm=true">+</button>
         <div class="form-group" *ngIf="showForm">
             <h2>Add a new schedule</h2>
@@ -41,7 +39,7 @@
                         <td><label for="name">Select the Program Name:</label></td>
                         <td>
                             <select class="form-control" formControlName="name" id="name">
-                                <option disabled selected value> -- select an program -- </option>
+                                <option disabled selected value> -- select a program -- </option>
                                 <option *ngFor="let program of visiblePrograms" [value]="program.name">
                                     {{program.name}}
                                 </option>
@@ -76,7 +74,7 @@
                     <tr>
                         <td><label for="location">Enter the Location:</label></td>
                         <td>
-                            <input class="form-control" type="text" formControlName="location" id="location">
+                            <input class="form-control" type="text" formControlName="location" id="location" placeholder="Enter the location of program">
 
                             <small
                                 *ngIf="!scheduleForm.get('location').valid && scheduleForm.get('location').touched">Enter
@@ -86,7 +84,7 @@
                     <tr>
                         <td><label for="sessions">Enter the number of sessions per week:</label></td>
                         <td>
-                            <input class="form-control" type="text" formControlName="sessions" id="sessions">
+                            <input class="form-control" type="text" formControlName="sessions" id="sessions" placeholder="Enter the number of sessions per week">
 
                             <small
                                 *ngIf="!scheduleForm.get('sessions').valid && scheduleForm.get('sessions').touched">Enter

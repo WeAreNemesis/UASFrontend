@@ -34,8 +34,8 @@ export class LoginComponent implements OnInit {
   onSubmit(form): void {
     if (form.valid) {
       let route = this._validationService.authenticate(form.value.name, form.value.password, this.users);
-      console.log(route);
-      console.log(localStorage.getItem('user'));
+      // console.log(route);
+      // console.log(localStorage.getItem('user'));
       this.route.navigate([`/${route}`]);
     }
   }

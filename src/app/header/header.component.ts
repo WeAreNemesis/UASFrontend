@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ValidationService } from '../serviceValidation/validation.service';
-import { Router } from '@angular/router';
+import { Router, NavigationEnd } from '@angular/router';
+import { filter } from 'rxjs/operators';
 
 @Component({
   selector: 'app-header',
@@ -10,8 +11,13 @@ import { Router } from '@angular/router';
 export class HeaderComponent implements OnInit {
 
   user = "User";
-  constructor(private _validationService: ValidationService, private route: Router) { 
-   
+  log = "Login";
+  constructor(private _validationService: ValidationService, private route: Router) {
+    route.events.pipe(
+      filter(event => event instanceof NavigationEnd)
+    ).subscribe((event: NavigationEnd) => {
+      if (event.url === "/admin" || event.url === "/mac") this.setUserName();
+    });
   }
 
   ngOnInit(): void {
@@ -24,12 +30,14 @@ export class HeaderComponent implements OnInit {
     this.route.navigate(['/home']);
   }
 
-   setUserName(): void {
+  setUserName(): void {
     let role = JSON.parse(localStorage.getItem('user'));
     if (role) {
       this.user = role.name;
+      this.log = "Logout";
     } else {
       this.user = "User";
+      this.log = "Login";
     }
   }
 }
