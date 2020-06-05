@@ -13,14 +13,25 @@ export class MacFilterApplicantsComponent implements OnInit {
 
   application: Application[]=[];
   schedule:Schedule[]=[];
-
-  status:string;
+  model : any[]=[];
+  name:string;
+  formvisible: boolean=false;
 
   constructor(private appService: ApplicationService, private scheduleService :ScheduleService) { }
 
   ngOnInit(): void {
     this.getSchedules();
     this.getApplications();
+    this.application.forEach(function(element){
+      this.model.push({
+      courseId:(this.schedule.find(e=>e.id===element.schedule)).id,
+       id:element.id,
+       name:element.name,
+       courseName:(this.schedule.find(e=>e.id===element.schedule)).name,
+
+      });
+      console.log(this.model);
+    });
 
   }
 
@@ -31,5 +42,20 @@ export class MacFilterApplicantsComponent implements OnInit {
 
   getSchedules(): void {
     this.scheduleService.getSchedules().subscribe(schedules => this.schedule = schedules);
+    console.log(this.schedule);
+  }
+
+  deleteApplicant(event, id: number) : void
+  {
+    console.log("delete called");
+    this.appService.deleteApplication(id).subscribe(data => {
+      console.log("Applicant deleted.");
+      this.getApplications();
+    });
+  }
+  setInterview($event,m):void
+  {
+    this.formvisible=true;
+
   }
 }

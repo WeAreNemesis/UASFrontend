@@ -1,11 +1,4 @@
-<html>
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Members of Admission committee</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-</head>
-<body style="background-color: #ecf0f1;">
+<br><br>
     <h3 align="center">Applied courses</h3><br>
     <b>Search:</b> &nbsp;&nbsp;<input type="text" name="search" placeholder="Search by course ID" style="border-radius: 10px;">
     <br>
@@ -20,78 +13,19 @@
             <th>Action</th>
         </tr>
         </thead>
-        <tr>
-            <td>1000</td>
-            <td>A1001</td>
-            <td>Sonu Kushwaha</td>
-            <td>B.Tech</td>
+        <tr *ngFor="let m of model |filterByCourseId:name">
+            <td>{{m.courseId}}</td>
+            <td>{{m.id}}</td>
+            <td>{{m.name}}</td>
+            <td>{{m.courseName}}</td>
             <td>
-                <a href="#"><button type="submit" class="btn btn-success btn-sm">Accept</button></a>&nbsp;
-                <button type="submit" class="btn btn-danger btn-sm">Reject</button>&nbsp;
+                <button type="submit" class="btn btn-success btn-sm" (click)="setInterview($event,m)">Accept</button>&nbsp;
+                <button type="submit" class="btn btn-danger btn-sm" (click)="deleteApplicant($event,m.id)">Reject</button>&nbsp;
                 <button type="submit" class="btn btn-primary btn-sm">Confirm</button>
             </td>
 
         </tr>
-        <tr>
-            <td>1001</td>
-            <td>A1002</td>
-            <td>Shailesh </td>
 
-            <td>B.E</td>
-            <td>
-                <a href="#"><button type="submit" class="btn btn-success btn-sm">Accept</button></a>&nbsp;
-                  <button type="submit" class="btn btn-danger btn-sm">Reject</button>&nbsp;
-                  <button type="submit" class="btn btn-primary btn-sm">Confirm</button>
-              </td>
-
-          </tr>
-          <tr>
-              <td>1002</td>
-              <td>A1003</td>
-              <td>Manish</td>
-              <td>B.Sc</td>
-              <td>
-                <a href="#"><button type="submit" class="btn btn-success btn-sm">Accept</button></a>&nbsp;
-                <button type="submit" class="btn btn-danger btn-sm">Reject</button>&nbsp;
-                <button type="submit" class="btn btn-primary btn-sm">Confirm</button>
-            </td>
-        </tr>
-        <tr>
-            <td>1001</td>
-            <td>A1004</td>
-            <td>Siddharth</td>
-            <td>B.E</td>
-            <td>
-              <a href="#"><button type="submit" class="btn btn-success btn-sm">Accept</button></a>&nbsp;
-                <button type="submit" class="btn btn-danger btn-sm">Reject</button>&nbsp;
-                <button type="submit" class="btn btn-primary btn-sm">Confirm</button>
-            </td>
-        </tr>
-        <tr>
-            <td>1000</td>
-            <td>A1005</td>
-            <td>Deepak</td>
-            <td>B.Tech</td>
-            <td>
-              <a href="#"><button type="submit" class="btn btn-success btn-sm">Accept</button></a>&nbsp;
-                <button type="submit" class="btn btn-danger btn-sm">Reject</button>&nbsp;
-                <button type="submit" class="btn btn-primary btn-sm">Confirm</button>
-            </td>
-        </tr>
-        <tr>
-            <td>1003</td>
-            <td>A1006</td>
-            <td>Ravi</td>
-            <td>B.Com</td>
-            <td>
-              <a href="#"><button type="submit" class="btn btn-success btn-sm">Accept</button></a>&nbsp;
-                <button type="submit" class="btn btn-danger btn-sm">Reject</button>&nbsp;
-                <button type="submit" class="btn btn-primary btn-sm">Confirm</button>
-            </td>
-        </tr>
-
-    </table>
-</body>
-</html>
+      </table>
 
 

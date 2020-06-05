@@ -1,8 +1,9 @@
-
+    <br><br><br>
       <h3 align="center">Applied courses</h3><br>
+      <br>
       <b>Search:</b> &nbsp;&nbsp;<input type="text" name="search" placeholder="Search by applicant Status" style="border-radius: 10px;">
       <br>
-      <br>
+
       <table class="table table-hover">
           <thead class="thead-dark">
               <tr>
@@ -12,16 +13,10 @@
               <th>Status</th>
           </tr>
           </thead>
-            <tr>
-              <td>A101</td>
-              <td>Sonu</td>
-              <td>B.E.</td>
-              <td>01-05-2020</td>
-            </tr>
-            <tr>
-              <td>A102</td>
-              <td>Siddharth</td>
-              <td>M.B.B.S</td>
-              <td>10-05-2020</td>
-            </tr>
+           <tr *ngFor="let m of model | filterByApplicantId: status">
+              <td>{{m.id}}</td>
+              <td>{{m.name}}</td>
+              <td>{{m.courseName}}</td>
+              <td>{{m.status}}</td>
+           </tr>
  </table>

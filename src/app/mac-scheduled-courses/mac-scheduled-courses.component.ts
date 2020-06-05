@@ -10,8 +10,12 @@ import { Schedule } from '../serviceSchedule/Schedule';
   styleUrls: ['./mac-scheduled-courses.component.css']
 })
 export class MacScheduledCoursesComponent implements OnInit {
-  application: Application[]=[];
-  schedule:Schedule[]=[];
+   application: Application[]=[];
+   schedule:Schedule[]=[];
+    model : any[]=[];
+
+
+
 
   status:string;
 
@@ -20,15 +24,30 @@ export class MacScheduledCoursesComponent implements OnInit {
   ngOnInit(): void {
     this.getSchedules();
     this.getApplications();
+    this.application.forEach(function(element){
+      this.model.push({
+       id:element.id,
+       name:element.name,
+       courseName:(this.schedule.find(e=>e.id===element.schedule)).name,
+       status:element.status
+      });
+      console.log(this.model);
+    });
+
 
   }
 
   getApplications(): void {
-    this.appService.getApplications().subscribe(applications => this.application = applications);
-    console.log(this.application);
+    this.appService.getApplications().subscribe(applications => { this.application = applications;
+      console.log(this.application);
+    });
+
   }
 
   getSchedules(): void {
-    this.scheduleService.getSchedules().subscribe(schedules => this.schedule = schedules);
+    this.scheduleService.getSchedules().subscribe(schedules => { this.schedule = schedules;
+      console.log(this.schedule);
+    });
+
   }
 }
